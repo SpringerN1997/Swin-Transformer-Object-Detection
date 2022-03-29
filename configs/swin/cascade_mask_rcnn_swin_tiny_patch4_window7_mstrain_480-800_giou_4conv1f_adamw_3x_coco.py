@@ -26,7 +26,7 @@ model = dict(
                 conv_out_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=9,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0., 0., 0., 0.],
@@ -45,7 +45,7 @@ model = dict(
                 conv_out_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=9,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0., 0., 0., 0.],
@@ -64,7 +64,7 @@ model = dict(
                 conv_out_channels=256,
                 fc_out_channels=1024,
                 roi_feat_size=7,
-                num_classes=80,
+                num_classes=9,
                 bbox_coder=dict(
                     type='DeltaXYWHBBoxCoder',
                     target_means=[0., 0., 0., 0.],
@@ -75,7 +75,8 @@ model = dict(
                 loss_cls=dict(
                     type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
                 loss_bbox=dict(type='GIoULoss', loss_weight=10.0))
-        ]))
+        ],
+        mask_head=dict(num_classes=9)))
 
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
@@ -129,12 +130,11 @@ lr_config = dict(step=[27, 33])
 runner = dict(type='EpochBasedRunnerAmp', max_epochs=36)
 
 # do not use mmdet version fp16
-fp16 = None
-optimizer_config = dict(
-    type="DistOptimizerHook",
-    update_interval=1,
-    grad_clip=None,
-    coalesce=True,
-    bucket_size_mb=-1,
-    use_fp16=True,
-)
+#fp16 = None
+#optimizer_config = dict(
+#    type="DistOptimizerHook",
+#    update_interval=1,
+#    grad_clip=None,
+#    coalesce=True,
+#    bucket_size_mb=-1,    use_fp16=True,
+#)

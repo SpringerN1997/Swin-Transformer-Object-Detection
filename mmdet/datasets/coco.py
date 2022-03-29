@@ -20,20 +20,7 @@ from .custom import CustomDataset
 @DATASETS.register_module()
 class CocoDataset(CustomDataset):
 
-    CLASSES = ('person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus',
-               'train', 'truck', 'boat', 'traffic light', 'fire hydrant',
-               'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog',
-               'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe',
-               'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
-               'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat',
-               'baseball glove', 'skateboard', 'surfboard', 'tennis racket',
-               'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl',
-               'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot',
-               'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch',
-               'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop',
-               'mouse', 'remote', 'keyboard', 'cell phone', 'microwave',
-               'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock',
-               'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush')
+    CLASSES = ('rumex with leaves', 'rumex with leaves IS', 'rumex stalks only', 'cluster of rumex', 'ignore', 'rumex_generated_med_conf', 'rumex_generated_2_med_conf', 'rumex_generated_high_conf', 'rumex_generated_2_high_conf')
 
     def load_annotations(self, ann_file):
         """Load annotation from COCO style annotation file.
